@@ -1,0 +1,223 @@
+<!-- $Id: samplepacct.apolicy.xml 644 2007-06-18 21:36:41Z Xiaolin $ -->
+
+<policy>
+
+
+<field name="AC_COMM">
+
+<!--		                         <StringBlackMarker>                                                                                                                    
+      <numMarks>22</numMarks>                                                    
+      <replacement>A</replacement>                                              
+ </StringBlackMarker>        
+-->
+
+<StringTruncation>                                                                                                                    
+      <numChars>4</numChars>                                                    
+      <direction>left</direction>                                               
+</StringTruncation>    
+
+</field>
+
+
+
+ <field name="AC_GID">
+
+    <BinaryBlackMarker>
+      <numMarks>6</numMarks>
+      <replacement>0</replacement>
+    </BinaryBlackMarker>
+
+<!--
+   <Annihilation/>
+
+   <NumericTruncation>
+      <direction>left</direction>                                               
+      <numShifts>32</numShifts>
+      <radix>2</radix>
+   </NumericTruncation>    
+-->
+
+</field>
+
+
+
+
+ <field name="AC_UID">
+<!--
+    <BinaryBlackMarker>
+      <numMarks>6</numMarks>
+      <replacement>0</replacement>
+    </BinaryBlackMarker>
+
+
+     <Annihilation/>
+-->
+
+   <NumericTruncation>
+      <direction>right</direction>                                               
+      <numShifts>32</numShifts>
+      <radix>2</radix>
+    </NumericTruncation>    
+
+</field>
+
+
+
+
+
+  <field name="AC_BTIME">
+
+<!--
+    <RandomTimeShift>
+      <lowerTimeShiftLimit>10</lowerTimeShiftLimit>
+      <upperTimeShiftLimit>10</upperTimeShiftLimit>
+      <secondaryField>NONE</secondaryField>
+    </RandomTimeShift>
+-->
+
+   <TimeUnitAnnihilation>
+      <timeField>hours</timeField>
+      <secondaryField>NONE</secondaryField>
+    </TimeUnitAnnihilation>
+
+<!--
+    <Annihilation/>
+    
+   <BinaryBlackMarker>
+      <numMarks>8</numMarks>
+      <replacement>0</replacement>
+    </BinaryBlackMarker>
+
+    <TimeEnumeration>
+      <bufferSize>30</bufferSize>
+      <intervalSize>3</intervalSize>
+      <baseTime>10000000</baseTime>
+    </TimeEnumeration>
+-->
+  </field>
+
+
+
+<field name="AC_FLAG"> 
+    <Annihilation /> 
+</field> 
+
+
+<!--
+<field name="AC_UTIME"> 
+    <Annihilation /> 
+ </field> 
+
+
+ <field name="AC_STIME"> 
+    <Annihilation /> 
+ </field> 
+
+
+ <field name="AC_ETIME"> 
+    <Annihilation /> 
+ </field> 
+
+
+ <field name="AC_MEM"> 
+    <Annihilation /> 
+ </field> 
+
+
+ <field name="AC_SWAPS"> 
+    <Annihilation /> 
+ </field> 
+
+
+ <field name="AC_MINFLT"> 
+    <Annihilation /> 
+ </field> 
+
+
+ <field name="AC_MAJFLT"> 
+    <Annihilation /> 
+ </field> 
+
+
+ <field name="AC_PID"> 
+    <Annihilation /> 
+ </field> 
+
+
+ <field name="AC_PPID"> 
+    <Annihilation /> 
+ </field> 
+
+-->
+
+
+<!--
+
+  <field name="AC_EXITCODE">
+
+    <NumericTruncation>
+      <numShifts>4</numShifts>
+      <radix>2</radix>
+    </NumericTruncation>
+
+    <RandomPermutation/>
+
+    <BinaryBlackMarker>
+      <numMarks>4</numMarks>
+      <replacement>1</replacement>
+    </BinaryBlackMarker>
+
+  </field>
+-->
+
+<!--
+ <field name="AC_IO">
+
+    <NumericTruncation>
+      <numShifts>4</numShifts>
+      <radix>2</radix>
+    </NumericTruncation>
+
+    <RandomPermutation/>
+
+    <BinaryBlackMarker>
+      <numMarks>12</numMarks>
+      <replacement>1</replacement>
+    </BinaryBlackMarker>
+
+  </field>
+-->
+
+
+<!--
+
+ <field name="AC_RW">
+
+    <NumericTruncation>
+      <numShifts>4</numShifts>
+      <radix>2</radix>
+    </NumericTruncation>
+
+    <RandomPermutation/>
+
+    <BinaryBlackMarker>
+      <numMarks>12</numMarks>
+      <replacement>1</replacement>
+    </BinaryBlackMarker>
+
+  </field>
+-->
+
+
+<!--
+  <field name="TCP_DST_PORT">
+
+    <Classify>
+      <configString>9:9,99:99,999:999,1024:1024,9999:9999</configString>
+    </Classify>
+
+  </field>
+-->
+
+
+</policy>

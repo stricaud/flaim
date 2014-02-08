@@ -1,0 +1,93 @@
+body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+	background: #ffffff;
+}
+
+.container {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+div.body {
+	position: absolute;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+div.minibar_float {
+	float: left;
+	height: 45px;
+}
+
+#minibar_ui_stuff {
+	float: right;
+	padding-top: 4px;
+	width: 170px;
+}
+
+img.minibar_logo {
+	border: none;
+	float: left;
+	height: 45px;
+}
+
+img.minibar_ui_logo {
+	border: none;
+	float: left;
+	margin-right: 10px;
+}
+
+p.minibar_ui_text {
+	margin-top: 3px;
+	margin-right: 10px;
+}
+
+p.minibar_main_text {
+	margin-top: 10px;
+	float: left;
+	height: 45px;
+}
+
+.minibar_search {
+	margin-top: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+}
+
+.minibar_search_button {
+	margin-top: 10px;
+	margin-left: 5px;
+}
+
+a.minibar_main_links {
+	text-decoration: none;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+a.minibar_main_links:hover {
+	text-decoration: underline;
+}
+
+a.minibar_ui_link {
+	text-decoration: none;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+#minibar {
+	background-image:url(http://www.ncsa.uiuc.edu/includes/images/minibar-bg.gif);
+	height: 45px;
+	width: 100%;
+}
+
+form {
+	margin:0;
+	padding:0;
+}

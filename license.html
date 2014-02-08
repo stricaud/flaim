@@ -3,7 +3,7 @@
 <html>
 
 <head>
-<title>FLAIM Home Page</title>
+<title>FLAIM License</title>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
 <link href="mininav-styles.css" rel="stylesheet" type="text/css">
 <link type="text/css" rel="stylesheet" href="laim.css">
@@ -12,11 +12,6 @@
 </head>
 
 <body>
-
-<div align="center">
-<h2>WARNING: This webpage is a mirror of the webpage that used to be on http://flaim.ncsa.uiuc.edu/ Since is has been removed from the surface of the internet, I would like to thank Adam for providing me the whole package.</h2>
-</div>
-
 <div id="minibar" style="font-family:Arial,Helvetica,sans-serif; font-size:95%;">
 <a href="http://www.ncsa.uiuc.edu/"><img src="http://www.ncsa.uiuc.edu/includes/images/minibar-logo.jpg" alt="NCSA logo" class="minibar_logo"></a>
 
@@ -61,17 +56,17 @@
 <div class="body">
 <table WIDTH="100%" ><tbody><tr>
 <td style="vertical-align:top; width:17%;">
-<img class="center" src="images/flaim.png" ALT="FLAIM Logo" width="150" height="112">
+<img src="images/flaim.png" ALT="FLAIM Logo" class="center"
+width="150" height="112">
 <table style="font-family:verdana,sans-serif" WIDTH="100%">
-<tr><td
-style="color:red;background-color:white;"><b>About</b></td></tr>
+<tr><td><a style="text-decoration:none" href="index.html">About</a></td></tr>
 <tr><td><a style="text-decoration:none" href="http://laim.ncsa.uiuc.edu/index.html">LAIM WG Home</a></td></tr>
-<tr><td><a style="text-decoration:none" href="license.html">License</a></td></tr>
+<tr><td style="color:red;background-color:white;"><b>License</b></td></tr>
 <tr><td><a style="text-decoration:none" href="download.html">Download</a></td></tr>
 <tr><td><a style="text-decoration:none" href="installation.html">Installation</a></td></tr>
-<tr><td><a style="text-decoration:none" href="documentation.html">Documentation</a>
-<tr><td><a style="text-decoration:none" href="support.html">Support</a>
-</td></tr></table>
+<tr><td><a style="text-decoration:none" href="documentation.html">Documentation</a></td></tr>
+<tr><td><a style="text-decoration:none" href="support.html">Support</a></td></tr>
+</table>
 <hr>
 <a href="http://www.nsf.gov"><img class="center" src="images/nsf.png"
 width="150" height="147" alt="NSF
@@ -85,58 +80,53 @@ the National Science Foundation and the Office of Naval Research.</p>
 <a href="http://jigsaw.w3.org/css-validator/"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss"  alt="Valid CSS!"></a>
 </td>
 <td style="padding:0.5em; vertical-align:top; background:#CDCDEF; color:black; width:83%">
-<h1>FLAIM (Framework for Log Anonymization and Information Management)</h1>
-<p>FLAIM is a general framework, created to support the anonymization
-of heterogeneous logs to multiple levels.  It is developed by the
-<b><a href="http://laim.ncsa.uiuc.edu">LAIM Working Group</a></b> at
-the <a href="http://www.ncsa.uiuc.edu">NCSA</a>. As the developers of
-FLAIM, our main contributions are to provide (1) the anonymization
-engine containing a broad set of anonymization algorithms for various
-datatypes, (2) the XML based policy engine which validates and parses
-users' XML policies against a variety of schemas (we incorporate Relax
-NG, Schematron, XML and XSLT technologies here), and (3) a simple yet
-strict API governing how parsing modules (loaded dynamically at
-run-time) can pass records back and forth with FLAIM's anonymization
-engine.</p>
-<p>The reason for creating an API and dynamically loadable modules is
-to allow others to more easily expand FLAIM's use beyond the few types
-of logs that we initially supported (e.g., pcap headers, netfilter,
-NetFlows, process accounting). The typical user will just download
-FLAIM and the appropriate module for their log type.  However, we
-foresee other, more advanced users that would like to expand FLAIM to
-other logs for their special needs. For example, they could write a module that
-supports streaming (This is possible because the the methods to read
-and write data are abstracted away from FLAIM), one that parses a
-new type of log, or a module to perform pre/post-processing.</p>
-<p>For information on the architecture and design of FLAIM, look at the
-<i><a href="http://laim.ncsa.uiuc.edu/publications.html">
-Publications</a></i> page on the <a href="http://laim.ncsa.uiuc.edu">
-LAIM home</a>. The <i><a href="documentation.html">
-Documentation</a></i> page has the user guides and MAN page. The <i><a
-href="installation.html">Installation</a></i> pages contains
-installation instructions.</p>
-
-<h3>Real World Use</h3>
-<p>FLAIM has hundreds of users and has been used both internally at
-the NCSA and by many other organizations. At the NCSA, we have
-anonymized network data to share with AT&#38;T Research for their
-studies on <a
-href="http://doi.ieeecomputersociety.org/10.1109/TVCG.2007.70612">visualizing
-botnet propagation</a>. Researchers at Accenture have enhanced
-FLAIM by adding on an <a
-href="http://www.cert.org/flocon/2008/proceedings.html">anonymization
-risk estimator</a> to measure entropy loss when anonymizing
-data. These, and many others, have used FLAIM to share sensitive
-computer and network logs.</p>
-
-<p>We are, however, always looking to expand FLAIM's application. One
-potential future application is to anonymize IDS data at the
-individual sensors for large-scale, collaborative intrusion
-detection. Others have proposed modifying FLAIM for use on forensic
-corpora shared for research. In a completely different domain, we may
-be applying FLAIM to anonymization of student records in the future.
-<hr> <p style="font-size: small;">&copy;2005&ndash;2008 Board of
-Trustees of the University of Illinois.</p>
+<h1>FLAIM License</h1>
+<p>Copyright &copy; 2005&ndash;2008 The Board of Trustees of the University
+of Illinois.  All rights reserved.</p>
+<p>Developed by:</p>
+<blockquote><p>
+  LAIM Working Group<br>
+  National Center for Supercomputing Applications<br>
+  University of Illinois<br>
+  <a href="http://laim.ncsa.uiuc.edu/">http://laim.ncsa.uiuc.edu/</a>
+</p></blockquote>
+<p>Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation files
+(the "Software"), to deal with the Software without restriction,
+including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software,
+and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:</p>
+<ul>
+<li>Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimers.
+<li>Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimers in the
+documentation and/or other materials provided with the distribution.
+<li>Neither the names of the National Center for Supercomputing
+Applications, the University of Illinois, nor the names of its
+contributors may be used to endorse or promote products derived from
+this Software without specific prior written permission.
+</ul>
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT.  IN NO EVENT SHALL THE CONTRIBUTORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS WITH THE
+SOFTWARE.</p>
+<hr>
+<p style="font-size: small;">The above license applies to FLAIM's core
+software and all FLAIM modules provided on the pages at <a
+href="http://flaim.ncsa.uiuc.edu/">http://flaim.ncsa.uiuc.edu/</a>
+except for the pacct (Linux process accounting) module which is
+released under the GNU Library General Public License since it is
+based in part off of code from GPL v2 source code. See the
+&quot;COPYING&quot; file included with the pacct module source code
+for details.</p> 
+<hr>
+<p style="font-size: small;">&copy;2005&ndash;2008 Board of Trustees of the University of Illinois.</p>
 
 </td>
 </tr></tbody></table>

@@ -1,0 +1,10 @@
+body {color: #000000; background-color: #FFFFFF;}
+img {border: none;}
+img.center {display:block; margin-left: auto; margin-right: auto;}
+table {border: none;}
+table.center {border: none; margin-left:auto; margin-right:auto;}
+table.download {border-style: groove; margin-left:auto; margin-right:auto;}
+p {text-align: justify;}
+h1 {text-align: center}
+em {font-style: normal; text-decoration: underline;}
+em.un {text-decoration: underline}

@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+
+<html>
+
+<head>
+<title>FLAIM Installation Instructions</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<link href="mininav-styles.css" rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet" href="laim.css">
+<link rel="icon" href="http://www.uiuc.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="http://www.uiuc.edu/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<div id="minibar" style="font-family:Arial,Helvetica,sans-serif; font-size:95%;">
+<a href="http://www.ncsa.uiuc.edu/"><img src="http://www.ncsa.uiuc.edu/includes/images/minibar-logo.jpg" alt="NCSA logo" class="minibar_logo"></a>
+
+<p class="minibar_main_text">
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="minibar_main_links" href="http://www.ncsa.uiuc.edu/AboutUs/">About NCSA</a>
+&nbsp;&nbsp;&nbsp;<a class="minibar_main_links" href="http://www.ncsa.uiuc.edu/Projects/">Projects</a>
+&nbsp;&nbsp;&nbsp;<a class="minibar_main_links" href="http://www.ncsa.uiuc.edu/UserInfo/">User Info </a>
+&nbsp;&nbsp;&nbsp;<a class="minibar_main_links" href="http://www.ncsa.uiuc.edu/News/">News</a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+<div class="minibar_float">
+<form method="get" action="http://google.ncsa.uiuc.edu/search" class="topform"><div>
+  <input class="minibar_search" type="text" name="q" size="15"
+  maxlength="255" value="Search">
+  <input type="hidden" name="site" value="NCSA_Website">
+  <input type="hidden" name="client" value="NCSA_Website">
+  <input type="hidden" name="proxystylesheet" value="NCSA_Website">
+  <input type="hidden" name="output" value="xml_no_dtd"></div>
+</form>
+</div>
+
+<div class="minibar_float">
+<form method="get" action="http://google.ncsa.uiuc.edu/search"
+  class="topform"><div>
+  <input type="image" name="q" alt="Search"
+  src="http://www.ncsa.uiuc.edu/includes/images/minibar-search-button.gif"
+  style="margin-top: 10px;">
+  <input type="hidden" name="site" value="NCSA_Website">
+  <input type="hidden" name="client" value="NCSA_Website">
+  <input type="hidden" name="proxystylesheet" value="NCSA_Website">
+  <input type="hidden" name="output" value="xml_no_dtd"></div>
+</form>
+</div>
+
+<div id="minibar_ui_stuff">
+<a class="minibar_links" href="http://www.uiuc.edu/"><img class="minibar_ui_logo" src="http://www.ncsa.uiuc.edu/includes/images/minibar-uiuc-logo.gif" alt="U of I logo"></a>
+<p  class="minibar_ui_text" ><a class="minibar_ui_link" href="http://www.uiuc.edu/">University&nbsp;of&nbsp;Illinois<br>at&nbsp;Urbana-Champaign</a></p>
+</div>
+</div>
+
+<div class="body">
+<table WIDTH="100%" ><tbody><tr>
+<td style="vertical-align:top; width:17%;">
+<img src="images/flaim.png" class="center" ALT="FLAIM Logo"
+width="150" height="112">
+<table style="font-family:verdana,sans-serif" WIDTH="100%">
+<tr><td><a style="text-decoration:none" href="index.html">About</a></td></tr>
+<tr><td><a style="text-decoration:none" href="http://laim.ncsa.uiuc.edu/index.html">LAIM WG Home</a></td></tr>
+<tr><td><a style="text-decoration:none" href="license.html">License</a></td></tr>
+<tr><td><a style="text-decoration:none" href="download.html">Download</a></td></tr>
+<tr><td style="color:red;background-color:white;"><b>Installation</b></td></tr>
+<tr><td><a style="text-decoration:none" href="documentation.html">Documentation</a></td></tr>
+<tr><td><a style="text-decoration:none" href="support.html">Support</a></td></tr>
+</table>
+<hr>
+<a href="http://www.nsf.gov"><img class="center" src="images/nsf.png"
+width="150" height="147" alt="NSF
+Logo"></a><br>
+<a href="http://www.onr.navy.mil"><img class="center" src="images/onr.png"
+width="150" height="69" alt="ONRLogo"></a>
+<p style="font-size:x-small;">Research is funded in part or whole by
+the National Science Foundation and the Office of Naval Research.</p>
+<hr>
+<a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Strict" height="31" width="88"></a><br>
+<a href="http://jigsaw.w3.org/css-validator/"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss"  alt="Valid CSS!"></a>
+</td>
+<td style="padding:0.5em; vertical-align:top; background:#CDCDEF; color:black; width:83%">
+<h1>Installing FLAIM</h1>
+<ol>
+  <li>
+    <b>Install any missing dependencies.</b>
+    <p>FLAIM has been tested on Linux 2.6, Mac OS 10.4-5, FreeBSD 6.1,
+      OpenBSD 3.9 and NetBSD 3.0.1. FLAIM has dependencies on the
+      following libraries.</p>
+      <ul>
+        <li>
+	  <i>LIBXML</i>: <p>Libxml is an open source C library for
+	parsing and validating XML files. It is available on most
+	Linux and BSD systems. It can be downloaded from <a
+	href="http://xmlsoft.org/">http://xmlsoft.org/</a>. Note that
+	you may need both the binary library as well as the
+	development files to compile FLAIM. For binary
+	packages, you do not need the developer's package.</p>
+	</li>
+	<li>
+	  <i>LIBXSLT</i>: <p>Libxslt is a open source C library for
+	parsing XSLT style-sheets. It is available on most Linux and
+	BSD systems. It can be downloaded from <a
+	href="http://xmlsoft.org/XSLT/">http://xmlsoft.org/XSLT/</a>.
+	Note that you may need both the binary library as well as the
+	development files to compile FLAIM. For binary
+	packages, you do not need the developer's package.</p>
+	</li>
+	<li>
+	  <i>OPENSSL</i>: <p>Openssl is a open source C library for
+	creating encrypted SSL tunnels which also provides many
+	cryptographic functions. It is available on almost all Linux
+	and BSD systems. It can be downloaded from <a
+	href="http:/www.openssl.org/">http://www.openssl.org/</a>.
+	Note that you may need both the binary library as well as the
+	development files to compile FLAIM. For binary
+	packages, you do not need the developer's package.</p>
+	</li>
+      </ul>
+  </li>
+  <li>
+    <b>Download FLAIM-Core and at least one I/O module.</b> <p>You can
+  find FLAIM and its supported modules on the <a
+  href="download.html">Download</a> page. Download FLAIM-Core and the
+  modules corresponding to the types of logs you would like to process.</p>
+  </li>
+  <li>
+    <b>Install FLAIM-Core</b><p>You must unpack the tarball, run the
+  config script, and make the package. An example follows.</p>
+  <tt>[yoursystem]:$ tar zxf flaim-core-&lt;version&gt;.tgz<br>
+  [yoursystem]:$ cd flaim-core-&lt;version&gt;<br>
+  [yoursystem]:$ ./configure<br>
+  .... lots of output here ......<br>
+  [yoursystem]:$ make<br>
+  [yoursystem]:$ make install<br><br></tt>
+  </li>
+  <li>
+    <b>Install a FLAIM Module</b><p>You must unpack the tarball, run the
+  config script, and make the package. An example follows.</p>
+  <tt>[yoursystem]:$ tar zxf flaim-module-&lt;modulename&gt;-&lt;version&gt;.tgz<br>
+  [yoursystem]:$ cd flaim-module-&lt;modulename&gt;-&lt;version&gt;<br>
+  [yoursystem]:$ ./configure<br>
+  .... lots of output here ......<br>
+  [yoursystem]:$ make<br>
+  [yoursystem]:$ make install<br></tt>
+  </li>
+</ol>
+<hr>
+
+<h2>Important Note on RPMs and Debian packages</h2>
+<p>We compile binaries on Debian 4.0 (<i>Etch</i>) and use the
+<i>alien</i> package to generate RPMs and Debian packages from binary
+tarballs. As a consequence, you may have an issue using an RPM on a
+very old or very new Linux distribution because of differences in the
+major versions of critical libraries. For example, Fedora Core 6 (but
+not Core 4) uses <i>libstdc++</i> version 6 as opposed to version 5 in
+Debian Sarge, and hence it would not (at one time) install our RPM because of a dependency
+issue. In this case, and similar situations, one can simply download
+the source and compile FLAIM just fine.</p>
+
+<h2>Installing in Non-Standard Locations</h2>
+
+<p>The default installation behavior is to create
+<i>/usr/local/flaim</i> and place all the libraries and
+configuration files there. In addition, a symbolic link is made to
+<i>/usr/bin/flaim</i>. One must normally be root to install in these
+directories, or to install the man page.</p> 
+
+<p>To install FLAIM in a different location, one can pass an option to
+the <i>configure</i> script. The option to set is <i>prefix</i>.
+The default value for this variable is <i>/usr/local</i>. FLAIM then
+installs to <i>$(prefix)/flaim</i>,
+i.e. <i>/usr/local/flaim</i>. Say, instead, a user wants to 
+install FLAIM into <i>/usr/flaim</i>. He would then pass the
+option to the <i>configure</i> script as follows:</p>
+
+<tt>
+[yoursystem]:$ ./configure --prefix=/usr<br>
+</tt>
+<p>If the installation directory is changed for FLAIM-Core, it
+<b>must</b> be changed in the same way when modules are installed.
+Again, this can be done with the same options for their
+<i>configure</i> scripts.</p>
+<hr> 
+
+<p style="font-size: small;">&copy;2005&ndash;2008 Board of
+Trustees of the University of Illinois.</p>
+
+</td>
+</tr></tbody></table>
+</div></body>
+</html>

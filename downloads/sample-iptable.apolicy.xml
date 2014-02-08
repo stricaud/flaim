@@ -1,0 +1,61 @@
+<!-- 
+Sample User Policy file for iptable logs. 
+
+______________IMPORTANT____________________
+Notice that the values of the parameters 
+must NOT have any extra whitespace!!! 
+______________IMPORTANT__________________
+-->
+<policy>
+
+  <field name="IPV4_DST_IP">
+    <BinaryPrefixPreserving>
+      <passphrase>abracadabradoo</passphrase>
+    </BinaryPrefixPreserving>
+  </field>
+
+  <field name="IPV4_SRC_IP">
+    <NumericTruncation>
+      <numShifts>4</numShifts>
+      <radix>2</radix>
+    </NumericTruncation>
+  </field>
+
+  <field name="PCKT_TS_SEC">
+    <TimeUnitAnnihilation>
+      <timeField>seconds</timeField>
+      <secondaryField>NONE</secondaryField>
+    </TimeUnitAnnihilation>
+  </field>
+
+  <field name="ETHER_SRC_MAC">
+    <BinaryTruncation>
+      <numBits>4</numBits>
+    </BinaryTruncation>
+  </field>
+
+  <field name="ETHER_DST_MAC">
+    <BinaryBlackMarker>
+      <numMarks>3</numMarks>
+      <replacement>1</replacement>
+    </BinaryBlackMarker>
+  </field>
+
+  <field name="TCP_SRC_PORT">
+    <BinaryRandomPermutation/>
+  </field>
+
+  <field name="TCP_DST_PORT">
+    <Classify>
+      <configString>9:9,99:99,999:999,1024:1024,9999:9999</configString>
+    </Classify>
+  </field>
+
+  <field name="PCKT_MACHINE_NAME">
+    <Substitution>
+      <substitute>delta.beta.com</substitute>
+    </Substitution>
+  </field>
+
+</policy>
+
