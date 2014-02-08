@@ -1,0 +1,187 @@
+.TH FLAIM 1 local
+.SH NAME
+flaim \- anonymize system and network logs
+.SH SYNOPSIS
+.ll +8
+.B flaim
+[
+.I "OPTION"
+]
+[
+.B "\-m "
+.I "module-name"
+]
+[
+.B "\-p "
+.I "policy"
+]
+[
+.B "\-i "
+.I "input.log"
+]
+.ll -8
+.br
+[
+.B "\-o "
+.I "output.log"
+]
+
+.SH DESCRIPTION
+.I flaim
+is a multi-level, multi-log anonymization tool. 
+.I FLAIM-Core
+comprises the anonymization engine and XML based policy manager.
+.I FLAIM-Core 
+loads dynamic libraries responsible for I/O and parsing at
+runtime. There is a library for each type of log 
+.I flaim 
+supports. The XML policy, the I/O module, input file and output files
+are all specified on the command line.
+.PP
+
+.SH OPTIONS
+.TP
+.B \-h --help
+Display the usage information and exit.
+.TP
+.B \-i --input <file-name>
+Specifies the source log for anonymization. If unspecified, stdin will
+be used.  However, not all modules support reading input from
+stdin. Those that do not support streaming will exit and force you to
+specify a file name.
+.TP
+.B \-l --list
+Lists all installed modules.  FLAIM will not find manually installed
+modules in non-standard locations.
+.TP
+.B \-m --module <module-name>
+Load the specified parsing module. The
+.B \-l 
+option shows the valid
+choices. Either this option must be used to specify a module installed
+in the default location, or the
+.B \-M 
+option must be used.
+.TP
+.B \-M --moduleLib <module-lib-path>
+Load the module library from the given path. This option is mutually
+exclusive with
+.B \-m
+and used for explicitly specifying the module location. It is also
+necessary to specify the schema location using
+.B \-s 
+when using this option.
+.TP
+.B \-o --output <file-name>
+Specifies the destination file for anonymized data. If unspecified,
+stdout will be used.  However, not all modules support writing output
+to stdout. Those that do not support streaming, will exit and force
+you to specify a file name.
+.TP
+.B \-p --policy <file-name>
+The use of this flag is mandatory as it specifies the location of the
+user policy.
+.TP
+.B \-s --schemaModule <module-schema-file-path>
+Load the module schema from the file specified with this option. This
+option is used if and only if the
+.B \-M 
+option is used.
+.TP
+.B \-v --verbose
+Print verbose messages to stderr.
+.TP
+.B \-V --version
+Print version information to stderr and exit.
+.TP 
+.B \-x --xtraConfig <file-name>
+This is used to specify a file containing extra information to be
+passed to the parsing module. It is optional and ignored by most modules.
+.SH "ENVIRONMENT"
+The environment variable
+.B FLAIM_ROOT
+specifies the location of 
+.I flaim 
+and, consequently, the location of the FLAIM modules.  This
+environment variable is setup in the default installation of
+FLAIM-Core.
+.SH "ERROR HANDLING"
+FLAIM outputs error messages to STDERR and informational messages to
+STDOUT (Or course, we cannot enforce this behavior in third party
+modules). Sometimes a module will either be unable to parse a packet
+properly, or it will come across a corrupted record. Every effort is
+made to continue, but sometimes records are corrupted badly enough
+that re-synchronization is impossible. In this case, FLAIM must exit
+without completing the task.
+
+If the corruption isn't bad or FLAIM just isn't able to fully parse the
+record (e.g., because it has come across an obscure IP protocol),
+FLAIM will continue processing records while writing the troublesome
+records to an error file. The naming convention for this file is
+lib<module_name>_flaim.errors. This file will contain a subset of the
+records from the original log, namely, the troublesome records. If the
+records are not too corrupted, one should be able to process this
+error file with the same tools they would process the original
+log. For example, the error file created by the pcap module should be
+something that 
+.I tcpdump
+can process.
+
+.SH "SEE ALSO"
+.B http://flaim.ncsa.uiuc.edu/documentation.html
+
+.SH "BUGS"
+This is a beta release of 
+.I flaim
+and we expect bugs to be found. We suggest users that want to hear
+about latest bug findings (or submit bugs themselves) to join the
+flaim-users@ncsa.uiuc.edu mailing list.
+.PP
+Instructions for joining this and other
+.I flaim 
+lists can be found at 
+.B http://flaim.ncsa.uiuc.edu/support.html
+.SH "COPYRIGHT NOTICE"
+Copyright 2005-2007 The Board of Trustees of the University of
+Illinois.  All rights reserved.
+.PP
+Developed by:
+.PP
+	LAIM Working Group
+.br
+	National Center for Supercomputing Applications
+.br
+	University of Illinois
+.br
+	http://www.slagell.com/laim.html
+.PP
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal with the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+.PP
+    1. Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimers.
+
+    2. Redistributions in binary form must reproduce the above
+copyright notice, this list of conditions and the following
+disclaimers in the documentation and/or other materials provided with
+the distribution.
+
+    3. Neither the names of the National Center for Supercomputing
+Applications, the University of Illinois, nor the names of its
+contributors may be used to endorse or promote products derived from
+this Software without specific prior written permission.
+.PP
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE CONTRIBUTORS OR COPYRIGHT HOLDERS BE LIABLE FOR
+ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS WITH THE SOFTWARE.
+
+Copyright 2005-2006 Board of Trustees of the University of Illinois.

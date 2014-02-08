@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+<modulepolicy>
+<!--
+
+IMPORTANT: This comment must come **AFTER** the modulepolicy tag!
+The <modulepolicy> tag must be the first element in the file.
+
+-->
+
+  <constraint>
+    <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Source IP address </DESC> -->
+    <fieldname>SRC_IP</fieldname>
+    <allowedAnony>
+      <NumericTruncation/>
+      <BinaryPrefixPreserving/>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Destination IP address </DESC> -->
+    <fieldname>DST_IP</fieldname>
+    <allowedAnony>
+      <NumericTruncation/>
+      <BinaryPrefixPreserving/>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Next hop router </DESC> -->
+    <fieldname>NEXT_HOP</fieldname>
+    <allowedAnony>
+      <NumericTruncation/>
+      <BinaryPrefixPreserving/>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> SNMP index of input interface </DESC> -->
+    <fieldname>INPUT</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> SNMP index of output interface </DESC> -->
+    <fieldname>OUTPUT</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Number of Packets in flow </DESC> -->
+    <fieldname>PACKETS</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Number of layer 3 bytes in the packets of the flow </DESC> -->
+    <fieldname>OCTETS</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> System uptime at start of flow, in seconds </DESC> -->
+    <fieldname>TS_SEC_FIRST</fieldname>
+    <allowedAnony>
+      <RandomTimeShift/>
+      <TimeEnumeration/>
+      <TimeUnitAnnihilation/>
+      <Annihilation/>
+      <Hash/>
+      <TimeRandomPermutation/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> System uptime at time where last packet was received, in seconds </DESC> -->
+    <fieldname>TS_SEC_LAST</fieldname>
+    <allowedAnony>
+      <RandomTimeShift/>
+      <TimeEnumeration/>
+      <TimeUnitAnnihilation/>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Current time in milliseconds since the export device booted </DESC> -->
+    <fieldname>HEAD_SYS_UPTIME</fieldname>
+    <allowedAnony>
+      <RandomTimeShift/>
+      <TimeEnumeration/>
+      <TimeUnitAnnihilation/>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Current count of seconds since 0000 UTC 1970 </DESC> -->
+    <fieldname>HEAD_UNIX_SECS</fieldname>
+    <allowedAnony>
+      <RandomTimeShift/>
+      <TimeEnumeration/>
+      <TimeUnitAnnihilation/>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Residual nanoseconds since 0000 UTC 1970 </DESC> -->
+    <fieldname>HEAD_UNIX_NSECS</fieldname>
+    <allowedAnony>
+      <RandomTimeShift/>
+      <TimeEnumeration/>
+      <TimeUnitAnnihilation/>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Source port </DESC> -->
+    <fieldname>SRC_PORT</fieldname>
+    <allowedAnony>
+      <NumericTruncation/>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <Classify/>
+      <Substitution/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Destination port </DESC> -->
+    <fieldname>DST_PORT</fieldname>
+    <allowedAnony>
+      <NumericTruncation/>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <Classify/>
+      <Substitution/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint8 </TYPE> -->
+    <!-- <COMMENT> If processing v5 flows, this will be a cumulative OR of the TCP flags. In v7 flows, it is always set to 0 </COMMENT> -->
+    <!-- <DESC> TCP flags </DESC> -->
+    <fieldname>TCP_FLAGS</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint8 </TYPE> -->
+    <!-- <COMMENT> First flag field in byte 36 of v7 flows only. </COMMENT> -->
+    <!-- <DESC> Flags </DESC> -->
+    <fieldname>FLAGS1</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> Second flag field at bytes 46-47 of v7 flows only </COMMENT> -->
+    <!-- <DESC> Flags </DESC> -->
+    <fieldname>FLAGS2</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <!-- <TYPE> uint8 </TYPE> -->
+    <!-- <COMMENT> for v7 flows: set to zero if flow mask is destination-only or source-destination </COMMENT> -->
+    <!-- <DESC> IP Protocol.  </DESC> -->
+    <fieldname>PROTOCOL</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <Classify/>
+      <BinaryRandomPermutation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+    <fieldname>TOS</fieldname>
+    <allowedAnony></allowedAnony>
+  </constraint>
+
+  <constraint>
+    <fieldname>SRC_AS</fieldname>
+    <allowedAnony></allowedAnony>
+  </constraint>
+
+  <constraint>
+    <fieldname>DST_AS</fieldname>
+    <allowedAnony></allowedAnony>
+  </constraint>
+
+  <constraint>
+    <fieldname>SRC_MASK</fieldname>
+    <allowedAnony></allowedAnony>
+  </constraint>
+
+  <constraint>
+    <fieldname>DST_MASK</fieldname>
+    <allowedAnony></allowedAnony>
+  </constraint>
+
+  <constraint>
+    <fieldname>ROUTER</fieldname>
+    <allowedAnony></allowedAnony>
+  </constraint>
+
+</modulepolicy>

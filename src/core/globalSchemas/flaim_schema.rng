@@ -1,0 +1,274 @@
+<!-- $Id: flaim_schema.rng 1047 2008-02-06 21:55:17Z byoo3 $ -->
+<!--
+This document contains the FLAIM schema in Relaxed NG syntax
+-->
+
+<element name="policy" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <oneOrMore>
+    <element name="field">
+      <attribute name="name">
+	<text/>
+      </attribute>
+
+      <choice>
+        <!-- Define all the possble anonymization algorithms here -->
+  
+        <!-- Binary prefix preserving -->
+        <element name="BinaryPrefixPreserving">
+	  <element name="passphrase">
+	    <text />
+          </element>
+        </element>
+  
+        <!-- Mac Random permuation anonymization -->
+        <!--<element name="MacRandomPermutation">
+            <optional>
+	      <element name="secondaryField">
+		<text/>
+	      </element>
+	    </optional>
+        </element> -->
+  
+        <!-- RandomTimeShift anonymization -->
+        <element name="RandomTimeShift">
+	  <interleave>
+	    <element name="lowerTimeShiftLimit">
+	      <data type="integer"/>
+	    </element>
+	    <element name="upperTimeShiftLimit">
+	      <data type="integer"/>
+	    </element>
+	    <optional>
+	      <element name="secondaryField">
+		<text/>
+	      </element>
+	    </optional>
+	  </interleave>
+	</element>
+  
+        <!-- TimeUnitAnnihilation anonymization -->
+        <element name="TimeUnitAnnihilation">
+	  <interleave>
+	    <element name="timeField">
+	      <text/>
+	    </element>
+	    <optional>
+	      <element name="secondaryField">
+		<text/>
+	      </element>
+	    </optional>
+	  </interleave>
+	</element>
+	
+        <!-- TimeEnumeration anonymization -->
+        <element name="TimeEnumeration">
+	  <interleave>
+	    <optional>
+	      <element name="bufferSize">
+		<text/>
+	      </element>
+	    </optional>
+	    <element name="intervalSize">
+            <text/>
+	    </element>
+	    <element name="baseTime">
+	      <text/>
+	    </element>
+	    <optional>
+	      <element name="secondaryField">
+		<text/>
+	      </element>
+	    </optional>
+	  </interleave>
+	</element>
+  
+        <!-- NumericTruncation -->
+        <element name="NumericTruncation">
+	  <interleave>
+	    <element name="numShifts">
+	      <text />
+	    </element>
+	    <element name="radix"> <!-- 2 or 10 -->
+	      <text/>
+	    </element>
+	    <optional>
+	      <element name="direction"> <!-- left or right -->
+		<text/>
+	      </element>
+	    </optional>
+	  </interleave>
+	</element>
+	
+        <!-- StringTruncation -->
+        <element name="StringTruncation">
+	  <interleave>
+	    <element name="numChars">
+	      <text />
+	    </element>
+	    <optional>
+	      <element name="direction"> <!-- left or right -->
+		<text/>
+	      </element>
+	    </optional>
+	  </interleave>
+	</element>
+   
+	<!-- Generic BitwiseTruncation -->
+	<element name="BytesTruncation">
+	  <interleave>
+	    <element name="numBits">
+	      <text />
+	    </element>
+	    <optional>
+	      <element name="direction"> <!-- left or right -->
+		<text/>
+	      </element>
+	    </optional>
+	  </interleave>
+	</element>
+
+	<!-- Generic BitwiseTruncation -->
+	<element name="BinaryTruncation">
+	  <interleave>
+	    <element name="numBits">
+	      <text />
+	    </element>
+	    <optional>
+	      <element name="direction"> <!-- left or right -->
+		<text/>
+	      </element>
+	    </optional>
+	  </interleave>
+	</element>
+  
+        <!-- generic numeric black marker -->
+<!--	<element name="BlackMarker">
+	  <interleave>
+	    <element name="type">
+	      <text/> 
+	    </element>
+	    <element name="numMarks">
+	      <text/>
+	    </element>
+	    <element name="replacement">
+	      <text/>
+	    </element>
+	  </interleave>
+	</element> -->
+  
+        <!-- Binary black marker -->
+	<element name="BinaryBlackMarker">
+	  <interleave>
+<!--	    <element name="type">
+	      <text/> 
+	    </element> -->
+	    <element name="numMarks">
+	      <text/>
+	    </element>
+	    <element name="replacement">
+	      <text/>
+	    </element>
+	  </interleave>
+	</element>
+
+        <!-- String black marker -->
+	<element name="StringBlackMarker">
+	  <interleave>
+<!--	    <element name="type">
+	      <text/> 
+	    </element> -->
+	    <element name="numMarks">
+	      <text/>
+	    </element>
+	    <element name="replacement">
+	      <text/>
+	    </element>
+	  </interleave>
+	</element>
+  
+        <!-- Annihilation -->
+        <element name="Annihilation">
+          <empty />
+        </element>
+  
+        <!-- Generic Numeric Random permuation anonymization -->
+        <element name="BinaryRandomPermutation">
+	    <optional>
+	      <element name="secondaryField">
+		<text/>
+	      </element>
+	    </optional>
+        </element>
+  
+        <!-- Generic Numeric Random permuation anonymization -->
+        <element name="TimeRandomPermutation">
+	    <optional>
+	      <element name="secondaryField">
+		<text/>
+	      </element>
+	    </optional>
+        </element>
+ 
+        <!-- Multilateral Classification anonymization -->
+	<element name="Classify">
+	  <interleave>
+	    <element name="configString">
+	      <text/>
+	    </element>
+	  </interleave>
+	</element>
+  
+        <!-- Hostname Blackmarker anonymization -->
+	<element name="HostBlackMarker">
+	  <interleave>
+	    <element name="type">
+	      <text/>
+	    </element>
+	    <element name="hostReplacement">
+	      <text/>
+	    </element>
+	    <element name="domainReplacement">
+	      <text/>
+	    </element>
+	  </interleave>
+	</element>
+	
+	<!-- Hostname Blackmarker anonymization -->
+        <element name="HostHash">
+	  <interleave>
+	    <element name="type">
+	      <text/>
+	    </element>
+	  </interleave>
+	</element>
+
+	<!-- HMAC anonymization -->
+	<element name="Hash">
+		<interleave>
+			<optional>
+				<element name="digestAlgorithm">
+					<text/>
+				</element>
+			</optional>			
+			<optional>
+				<element name="passphrase">
+					<text/>
+				</element>
+			</optional>
+		</interleave>
+	</element>
+	
+	<!-- Substitution anonymization -->
+	<element name="Substitution">
+          <element name="substitute">
+	    <text/>
+	  </element>
+        </element>
+  
+   
+      </choice>
+    </element>
+  </oneOrMore>
+</element>
+
+

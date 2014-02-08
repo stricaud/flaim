@@ -1,0 +1,71 @@
+## Run autoconf with this file present to generate ./configure
+AC_INIT(main.cpp)
+AM_INIT_AUTOMAKE(flaim-core, 0.7.0)
+AC_CANONICAL_BUILD
+AC_CANONICAL_HOST
+#$echo $build
+# echo $host
+AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_INSTALL
+
+# determine the system we are building on
+case $host in
+	*-*-netbsd*)
+            AC_ARG_WITH(lib-prefix,        [  --with-lib-prefix=[PFX]           Specify location of libxml/libxslt config], includevar="-I$withval/include/libxml2 -I$withval/include/libxslt -I$withval/include/openssl -I$withval/include -I$withval/lib", includevar='-I/usr/pkg/include/libxml2 -I/usr/pkg/include/libxslt -I/usr/pkg/openssl -I/usr/pkg/include')
+#echo $includevar
+	    AC_SUBST(includevar)
+            AC_ARG_WITH(lib-prefix,        [  --with-lib-prefix=[PFX] Specify location of libxml/libxslt config], libraryvar="-L$withval/lib -lxml2 -lxslt -lssl -lcrypto -lpthread", libraryvar='-L/usr/pkg/lib -lxml2 -lxslt -lssl -lcrypto -lpthread')
+#echo $includevar
+	    AC_SUBST(libraryvar)
+    echo "***"
+    echo "*** WARNING: The script has detected you are building on a NetBSD"
+    echo "***          machine. You must define a LD_LIBRARY_PATH environment"
+    echo "***          variable that contains the path to the shared libraries"
+    echo "***          FLAIM needs. This directory is probably /usr/pkg/lib."
+    echo "***"
+    echo "***          Try 'export LD_LIBRARY_PATH=/usr/pkg/lib'"
+    echo "***"
+    	    AC_DEFINE(HAVE_BSD)
+	    ;;
+        *-*-freebsd* | *-*-openbsd*)
+            AC_ARG_WITH(lib-prefix,        [  --with-lib-prefix=[PFX] Specify location of libxml/libxslt config], includevar="-I$withval/include/libxml2 -I$withval/include/libxslt -I$withval/include/openssl -I$withval/include -I$withval/lib", includevar='-I/usr/local/include/libxml2 -I/usr/local/include/libxslt -I/usr/local/include/openssl -I/usr/local/include')
+#echo $includevar
+	    AC_SUBST(includevar)
+            AC_ARG_WITH(lib-prefix,        [  --with-lib-prefix=[PFX] Specify location of libxml/libxslt config], libraryvar="-L$withval/lib -lxml2 -lxslt -lssl -lcrypto -lpthread", libraryvar='-L/usr/local/lib -lxml2 -lxslt -lssl -lcrypto -lpthread')
+#echo $includevar
+	    AC_SUBST(libraryvar)
+    	    AC_DEFINE(HAVE_BSD)
+            ;;
+	*)
+            AC_ARG_WITH(lib-prefix,        [  --with-lib-prefix=[PFX] Specify location of libxml/libxslt config], includevar="-I$withval/include -I$withval/lib -I$withval/include/libxml2 -I$withval/include/libxslt -I$withval/include/openssl", includevar='-I/usr/include/libxml2 -I/usr/include/libxslt -I/usr/include/openssl')
+#echo $includevar
+	    AC_SUBST(includevar)
+            AC_ARG_WITH(lib-prefix,        [  --with-lib-prefix=[PFX] Specify location of libxml/libxslt config], libraryvar="-L$withval/lib -lxml2 -lxslt -ldl -lssl -lcrypto -lpthread", libraryvar='-lxml2 -lxslt -lssl -lcrypto -ldl -lpthread')
+	    AC_SUBST(libraryvar)
+	    #AC_CHECK_LIB(dl, dlsym, [], [
+	    #	    echo "*** Error: This package requires libdl"
+	    #	    exit -1
+	    #	    ])
+	    #AC_CHECK_LIB(xslt, xsltApplyStylesheet, [], [
+	    #	    echo "*** Error: This package requires libxslt"
+	    #	    exit -1
+	    #	    ])
+	    #AC_CHECK_LIB(xml2, xmlParseFile, [], [
+	    #	    echo "*** Error: This package requires libxml2"
+	    #	    exit -1
+	    #	    ])
+	    ;;
+esac
+
+REV=`svn info | sed -n "s/Last Changed Rev://g"p`
+echo $REV
+
+AC_DEFINE([BUILD_NUMBER], [ 1051], [revision number])
+
+# set up the installation directories
+bindir='$(prefix)/flaim'
+datadir='$(prefix)/flaim'
+pkgdatadir='$(prefix)/flaim'
+
+AC_OUTPUT(Makefile)

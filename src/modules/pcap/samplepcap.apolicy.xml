@@ -1,0 +1,53 @@
+<!-- 
+Sample User Policy file for pcap logs. 
+
+______________IMPORTANT____________________
+Notice that the values of the parameters 
+must NOT have any extra whitespace!!! 
+______________IMPORTANT__________________
+-->
+<policy>
+
+  <field name="IPV4_DST_IP">
+    <BinaryPrefixPreserving>
+      <passphrase>abracadabra</passphrase>
+    </BinaryPrefixPreserving>
+  </field>
+
+  <field name="IPV4_SRC_IP">
+    <BinaryBlackMarker>
+      <numMarks>8</numMarks>
+      <replacement>0</replacement>
+    </BinaryBlackMarker>
+  </field>
+
+  <field name="TS_SEC">
+    <RandomTimeShift>
+      <lowerTimeShiftLimit>60</lowerTimeShiftLimit>
+      <upperTimeShiftLimit>600</upperTimeShiftLimit>
+      <secondaryField>NONE</secondaryField>
+    </RandomTimeShift>
+  </field>      
+
+  <field name="SRC_MAC">
+    <BinaryRandomPermutation />
+  </field>
+
+  <field name="DST_MAC">
+    <BinaryBlackMarker>
+      <numMarks>24</numMarks>
+      <replacement>0</replacement>
+    </BinaryBlackMarker>
+  </field>
+
+  <field name="TCP_SRC_PORT">
+    <Annihilation />
+  </field>
+
+  <field name="TCP_DST_PORT">
+    <Classify>
+      <configString>9:9,99:99,999:999,1024:1024,65535:65535</configString>
+    </Classify>
+  </field>
+
+</policy>

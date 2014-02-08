@@ -1,0 +1,606 @@
+<?xml version="1.0"?>
+<modulepolicy>
+<!-- $Id: pcap.modschema.xml 1041 2008-01-18 10:13:18Z byoo3 $ -->
+<!--
+___________________IMPORTANT______________________
+This comment MUST come AFTER the <modulepolicy> tag!!!! The <modulepolicy>
+tag must be the first element in the file..
+___________________IMPORTANT______________________
+
+
+This is the module schema (in MSL) for pcap logs
+-->
+
+<!-- Ethernet-related fields -->
+  <constraint>
+    <!-- <TYPE> Byte array </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Source MAC address </DESC> -->
+    <fieldname>SRC_MAC</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <BytesTruncation/>
+      <BinaryTruncation/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> Byte array </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Destination MAC address </DESC> -->
+    <fieldname>DST_MAC</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <BytesTruncation/>
+      <BinaryTruncation/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+<!-- Internet Protocol v4-related fields -->
+  <constraint>
+   <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Source IP address </DESC> -->
+    <fieldname>IPV4_SRC_IP</fieldname>
+    <allowedAnony>
+      <BinaryPrefixPreserving/>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <NumericTruncation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint32 </TYPE> -->
+   <!-- <COMMENT> none </COMMENT> -->
+   <!-- <DESC> Destination IP address </DESC> -->
+   <fieldname>IPV4_DST_IP</fieldname>
+   <allowedAnony>
+      <BinaryPrefixPreserving/>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <NumericTruncation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> IPv4 header and data length </DESC> -->
+    <fieldname>IPV4_LENGTH</fieldname>
+    <allowedAnony>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC>  IPv4 identification </DESC> -->
+    <fieldname>IPV4_ID</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <NumericTruncation/>
+      <BinaryRandomPermutation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> IPv4 fragment offset </DESC> -->
+    <fieldname>IPV4_OFFSET</fieldname>
+    <allowedAnony>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint8 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> IPv4 time to live </DESC> -->
+    <fieldname>IPV4_TTL</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <NumericTruncation/>
+      <BinaryRandomPermutation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> IPv4 checksum </DESC> -->
+    <fieldname>IPV4_CHECKSUM</fieldname>
+    <allowedAnony>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+<!-- TCP-related fields -->
+
+  <constraint>
+   <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Destination port </DESC> -->
+    <fieldname>TCP_DST_PORT</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <NumericTruncation/>
+      <Substitution/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+
+  <constraint>
+   <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Source port </DESC> -->
+    <fieldname>TCP_SRC_PORT</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <NumericTruncation/>
+      <Substitution/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC>  Sequence number </DESC> -->
+    <fieldname>TCP_SEQUENCE</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <NumericTruncation/>
+      <Annihilation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Acknowledgement number </DESC> -->
+    <fieldname>TCP_ACK_NO</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <NumericTruncation/>
+      <Annihilation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint8 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Data offset </DESC> -->
+    <fieldname>TCP_OFFSET</fieldname>
+    <allowedAnony>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint8 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Flags </DESC> -->
+    <fieldname>TCP_FLAGS</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <NumericTruncation/>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Window  </DESC> -->
+    <fieldname>TCP_WINDOW</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <NumericTruncation/>
+      <Annihilation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Checksum </DESC> -->
+    <fieldname>TCP_CHECKSUM</fieldname>
+    <allowedAnony>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Urgent pointer </DESC> -->
+    <fieldname>TCP_URGENT</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <NumericTruncation/>
+      <Annihilation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> byte array </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Additional header fields </DESC> -->
+    <fieldname>TCP_OPTIONS</fieldname>
+    <allowedAnony>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+<!-- UDP-related fields -->
+
+  <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> UDP Destination Port </DESC> -->
+    <fieldname>UDP_DST_PORT</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <NumericTruncation/>
+      <Substitution/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+
+  <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> UDP Source Port </DESC> -->
+    <fieldname>UDP_SRC_PORT</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <NumericTruncation/>
+      <Substitution/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+  
+  <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> UDP Length field </DESC> -->
+    <fieldname>UDP_LENGTH</fieldname>
+    <allowedAnony>
+    </allowedAnony>
+  </constraint>
+  
+   <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> UDP Checksum  </DESC> -->
+    <fieldname>UDP_CHECKSUM</fieldname>
+    <allowedAnony>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+<!-- ICMP-related fields -->
+  <constraint>
+   <!-- <TYPE> uint8 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP Type </DESC> -->
+    <fieldname>ICMP_TYPE</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <NumericTruncation/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP Code </DESC> -->
+    <fieldname>ICMP_CODE</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <NumericTruncation/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+   <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP Checksum </DESC> -->
+    <fieldname>ICMP_CHECKSUM</fieldname>
+    <allowedAnony>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint8 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP Type </DESC> -->
+    <fieldname>ICMP_IDENTIFIER</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <NumericTruncation/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP Sequence </DESC> -->
+    <fieldname>ICMP_SEQUENCE</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <NumericTruncation/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP Gateway </DESC> -->
+    <fieldname>ICMP_GATEWAY</fieldname>
+    <allowedAnony>
+      <BinaryPrefixPreserving/>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <NumericTruncation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint8 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP Pointer </DESC> -->
+    <fieldname>ICMP_POINTER</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <NumericTruncation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> Byte array </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP original data </DESC> -->
+    <fieldname>ICMP_ORIG_DATA</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <Hash/>
+      <!-- FIXME acc to data type <Truncation/> -->
+    </allowedAnony>
+  </constraint>
+  
+  <constraint>
+   <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP originate timestamp </DESC> -->
+    <fieldname>ICMP_TS_ORIG</fieldname>
+    <allowedAnony>
+      <RandomTimeShift/>
+      <TimeUnitAnnihilation/>
+      <Annihilation/>
+      <BinaryBlackMarker/>
+      <TimeEnumeration/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP receive timestamp </DESC> -->
+    <fieldname>ICMP_TS_REC</fieldname>
+    <allowedAnony>
+      <RandomTimeShift/>
+      <TimeUnitAnnihilation/>
+      <Annihilation/>
+      <BinaryBlackMarker/>
+      <TimeEnumeration/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP transmit timestamp </DESC> -->
+    <fieldname>ICMP_TS_TRANS</fieldname>
+    <allowedAnony>
+      <RandomTimeShift/>
+      <TimeUnitAnnihilation/>
+      <Annihilation/>
+      <BinaryBlackMarker/>
+      <TimeEnumeration/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP IPv4 source ip </DESC> -->
+    <fieldname>ICMP_IPV4_SRC_IP</fieldname>
+    <allowedAnony>
+      <BinaryPrefixPreserving/>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <NumericTruncation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP IPv4 destination ip </DESC> -->
+    <fieldname>ICMP_IPV4_DST_IP</fieldname>
+    <allowedAnony>
+      <BinaryPrefixPreserving/>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <BinaryRandomPermutation/>
+      <NumericTruncation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP IPv4 header and data length </DESC> -->
+    <fieldname>ICMP_IPV4_LENGTH</fieldname>
+    <allowedAnony>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP IPv4 identification </DESC> -->
+    <fieldname>ICMP_IPV4_ID</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <NumericTruncation/>
+      <BinaryRandomPermutation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP IPv4 fragment offset </DESC> -->
+    <fieldname>ICMP_IPV4_OFFSET</fieldname>
+    <allowedAnony>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint8 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP IPv4 time to live </DESC> -->
+    <fieldname>ICMP_IPV4_TTL</fieldname>
+    <allowedAnony>
+      <BinaryBlackMarker/>
+      <Annihilation/>
+      <NumericTruncation/>
+      <BinaryRandomPermutation/>
+      <Classify/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint16 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> ICMP IPv4 checksum </DESC> -->
+    <fieldname>ICMP_IPV4_CHECKSUM</fieldname>
+    <allowedAnony>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  
+<!-- Universal fields -->
+  <constraint>
+   <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Packet capture time, in seconds since epoch </DESC> -->
+    <fieldname>TS_SEC</fieldname>
+    <allowedAnony>
+      <RandomTimeShift/>
+      <TimeUnitAnnihilation/>
+      <Annihilation/>
+      <BinaryBlackMarker/>
+      <TimeEnumeration/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+
+  <constraint>
+   <!-- <TYPE> uint32 </TYPE> -->
+    <!-- <COMMENT> none </COMMENT> -->
+    <!-- <DESC> Microsecond of packet capture time - offset of \verb+TS_SEC+ </DESC> -->
+    <fieldname>TS_USEC</fieldname>
+    <allowedAnony>
+      <Annihilation/>
+      <Hash/>
+    </allowedAnony>
+  </constraint>
+</modulepolicy>

@@ -1,0 +1,57 @@
+Thank you for downloading FLAIM!
+
+This file describes the installation procedure for FLAIM-Core. After
+installing this package, you will also need to install at least one
+I/O module. Module installation instructions are packaged with the
+individual modules.
+
+----------
+
+1. Invoke the configure shell script from the directory with the FLAIM
+   sources.
+
+   /flaim-core> ./configure
+
+   This will prepare a Makefile for you so that you may build FLAIM.
+
+   If you wish to specify a non-default installation directory, you may
+   do so in this step. FLAIM will install into $(prefix)/flaim.
+   The value of $(prefix) is /usr/local by default, but you may change
+   this behavior by specifying a different value when invoking
+   ./configure. For example, to install in /usr/flaim, invoke:
+
+   /flaim-core> ./configure --prefix=/usr
+
+   If you do not specify --prefix, FLAIM will install into
+   /usr/local/flaim.
+
+2. Run make.
+
+   /flaim-core> make
+
+3. Become the superuser. This is necessary if you are going to make
+   install into the default location.
+
+4. Run make install.
+
+   /flaim-core> make install
+
+   This will install the FLAIM executable, man pages, configuration
+   files, and wrapper scripts. It will also create a symbolic link
+   connecting /usr/bin/flaim to the script used to invoke FLAIM.
+
+5. Install any modules you wish to use. See the installation
+   instructions for individual modules.
+
+6. Run FLAIM. Refer to the man page or invoke the help option to view
+   command line syntax.
+
+   /flaim-core> flaim --help
+
+----------
+
+Note that the installation location of FLAIM is determined when you
+run make install, _not_ when you run FLAIM. If you move the FLAIM
+executable and data directories, you will need to edit the wrapper
+script that passes data to FLAIM. It is located in installdir/flaim,
+where installdir is the original installation directory.

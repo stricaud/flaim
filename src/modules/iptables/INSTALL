@@ -1,0 +1,29 @@
+Thank you for downloading FLAIM! This file explains how to install
+FLAIM's netfilter-format log parsing module.
+
+-----------
+
+1. From the directory containing the module sources, run ./configure.
+
+   /libiptable-flaim> ./configure
+
+   This will prepare a Makefile for you.
+
+   Note that if you specified a nonstandard installation directory for
+   FLAIM-Core using the --prefix option, you will need to specify the
+   same options here or the -m flag will not work when using
+   FLAIM. See the FLAIM-Core installation instructions and the FLAIM
+   user's manual for details on --prefix and the -m flag.
+
+2. Run make to build the module.
+
+   /libiptable-flaim> make
+
+3. Run make install to install the module.
+
+   /libiptable-flaim> make install
+
+   The module will install to the appropriate subdirectory of
+   $(prefix)/flaim. You may change this location by modifying
+   the prefix variable in step 1; however, see the FLAIM user's manual
+   and FLAIM-Core installation instructions before doing so.

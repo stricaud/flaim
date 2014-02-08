@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+<modulepolicy>
+<!--
+___________________IMPORTANT______________________
+This comment MUST come AFTER the <modulepolicy> tag!!!! The <modulepolicy>
+tag must be the first element in the file..
+___________________IMPORTANT______________________
+
+
+This is the module schema (in MSL) for pacct logs
+-->
+
+<!-- The fields both in V0-2 and V3 log -->
+
+<constraint>
+  <!-- <TYPE> Byte </TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC> Accounting flags</DESC> -->
+  <fieldname>AC_FLAG</fieldname>
+  <allowedAnony>
+     <Annihilation/>
+     <Hash/>
+  </allowedAnony>
+</constraint>
+
+
+<constraint>
+  <!-- <TYPE> uint16 </TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC> Control Terminal </DESC> -->
+  <fieldname>AC_TTY</fieldname>
+  <allowedAnony>
+    <Annihilation/>
+    <Classify/>
+    <Substitution/>
+    <BinaryBlackMarker/>
+    <NumericTruncation/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+
+<constraint>
+  <!-- <TYPE> uint32 </TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC>Real User ID </DESC> -->
+  <fieldname>AC_UID</fieldname>
+  <allowedAnony>
+    <Annihilation/>
+    <Classify/>
+    <Substitution/>
+    <BinaryBlackMarker/>
+    <NumericTruncation/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+
+<constraint>
+  <!-- <TYPE> uint32 </TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC> Real Group ID </DESC> -->
+  <fieldname>AC_GID</fieldname>
+  <allowedAnony>
+    <Annihilation/>
+    <Classify/>
+    <Substitution/>
+    <BinaryBlackMarker/>
+    <NumericTruncation/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+
+<constraint>
+  <!-- <TYPE> uint32 </TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC> Process Creation Time </DESC> -->
+  <fieldname>AC_BTIME</fieldname>
+  <allowedAnony>
+    <RandomTimeShift/>
+    <TimeUnitAnnihilation/>
+    <TimeEnumeration/>
+    <Annihilation/>
+    <BinaryBlackMarker/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+
+<constraint>
+  <!-- <TYPE> uint16 </TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC>User Time, in clock ticks </DESC> -->
+  <fieldname>AC_UTIME</fieldname>
+  <allowedAnony>
+    <Annihilation/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+
+<constraint>
+  <!-- <TYPE>uint16 </TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC>System Time, in clock ticks  </DESC> -->
+  <fieldname>AC_STIME</fieldname>
+  <allowedAnony>
+    <Annihilation/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+
+<constraint>
+  <!-- <TYPE> uint32</TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC>Elapsed Time, in clock ticks </DESC> -->
+  <fieldname>AC_ETIME</fieldname>
+  <allowedAnony>
+    <Annihilation/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+
+<constraint>
+  <!-- <TYPE> uint16 </TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC>Average Memory Usage ub clicks </DESC> -->
+  <fieldname>AC_MEM</fieldname>
+  <allowedAnony>
+    <Annihilation/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+
+<constraint>
+  <!-- <TYPE> uint16 </TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC>Chars Transferred by read/write </DESC> -->
+  <fieldname>AC_IO</fieldname>
+  <allowedAnony>
+    <Annihilation/>
+    <Classify/>
+    <Substitution/>
+    <BinaryBlackMarker/>
+    <NumericTruncation/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+
+<constraint>
+  <!-- <TYPE>uint16 </TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC> Blocks Read or Written </DESC> -->
+  <fieldname>AC_RW</fieldname>
+  <allowedAnony>
+    <Annihilation/>
+    <Classify/>
+    <Substitution/>
+    <BinaryBlackMarker/>
+    <NumericTruncation/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+
+<constraint>
+  <!-- <TYPE> uint16 </TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC>Minor Pagefaults  </DESC> -->
+  <fieldname>AC_MINFLT</fieldname>
+  <allowedAnony>
+    <Annihilation/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+
+<constraint>
+  <!-- <TYPE> uint16</TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC>Major Pagefaults</DESC> -->
+  <fieldname>AC_MAJFLT</fieldname>
+  <allowedAnony>
+    <Annihilation/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+
+<constraint>
+  <!-- <TYPE>uint16 </TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC> Number of Swaps </DESC> -->
+  <fieldname>AC_SWAPS</fieldname>
+  <allowedAnony>
+    <Annihilation/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+<constraint>
+  <!-- <TYPE> uint32 </TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC>Exitcode </DESC> -->
+  <fieldname>AC_EXITCODE</fieldname>
+  <allowedAnony>
+    <Annihilation/>
+    <Classify/>
+    <Substitution/>
+    <BinaryBlackMarker/>
+    <NumericTruncation/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+
+<constraint>
+  <!-- <TYPE> byte array </TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC>Command Name </DESC> -->
+  <fieldname>AC_COMM</fieldname>
+  <allowedAnony>
+    <StringTruncation/>
+    <StringBlackMarker/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+
+<constraint>
+  <!-- <TYPE> uint32 </TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC> Process ID </DESC> -->
+  <fieldname>AC_PID</fieldname>
+  <allowedAnony>
+    <Annihilation/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+
+<constraint>
+  <!-- <TYPE> uint32 </TYPE> -->
+  <!-- <COMMENT> none </COMMENT> -->
+  <!-- <DESC>Parent Process ID </DESC> -->
+  <fieldname>AC_PPID</fieldname>
+  <allowedAnony>
+    <Annihilation/>
+    <Hash/>
+  </allowedAnony>
+</constraint>
+
+</modulepolicy>

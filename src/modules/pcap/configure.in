@@ -1,0 +1,22 @@
+AC_INIT(pcap.cpp)
+AM_INIT_AUTOMAKE(flaim-module-pcap, 0.7.0)
+AC_CANONICAL_BUILD
+AC_CANONICAL_HOST
+case $host in
+	*-apple-*)
+		flagvar='-flat_namespace -bundle -undefined suppress'
+		AC_SUBST(flagvar)
+    		;;
+	*)
+		flagvar='-shared'
+		AC_SUBST(flagvar)
+    		;;
+esac
+bindir='$(prefix)/flaim/modules/pcap'
+datadir='$(prefix)/flaim/modules/pcap'
+pkgdatadir='$(prefix)/flaim/modules/pcap'
+CXXFLAGS='-fPIC'
+AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_INSTALL
+AC_OUTPUT(Makefile)

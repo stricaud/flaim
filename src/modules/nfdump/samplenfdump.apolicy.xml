@@ -1,0 +1,38 @@
+<!-- Sample policy for nfdump logs
+
+______________IMPORTANT____________________
+Notice that the values of the parameters 
+must NOT have any extra whitespace!!! 
+______________IMPORTANT__________________
+-->
+
+<policy>
+
+  <field name="SRC_IP">
+    <BinaryPrefixPreserving>
+      <passphrase>lowtax</passphrase>
+    </BinaryPrefixPreserving>
+  </field>
+
+  <field name="DST_IP">
+    <BinaryRandomPermutation />
+  </field>
+
+  <field name="OCTETS">
+    <BinaryBlackMarker>
+      <numMarks>4</numMarks>
+      <replacement>0</replacement>
+    </BinaryBlackMarker>
+  </field>
+
+  <field name="SRC_PORT">
+    <Annihilation/>
+  </field>
+
+  <field name="DST_PORT">
+    <Classify>
+      <configString>9:9,99:99,999:999,1024:1024,9999:9999</configString>
+    </Classify>
+  </field>
+
+</policy>
